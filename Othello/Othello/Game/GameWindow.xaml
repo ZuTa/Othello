@@ -1,0 +1,52 @@
+﻿<Window x:Class="Othello.Game.GameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Othello.Game"
+        Title="Othello" Height="485" Width="400" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" WindowStyle="ToolWindow" xmlns:my="clr-namespace:Othello.Game" MaxWidth="400" MinWidth="400" MaxHeight="485" MinHeight="485">
+    <Window.Resources>
+        <local:PositionConverter x:Key="Game.MyConverter"/>
+    </Window.Resources>
+	<Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+		<DockPanel LastChildFill="True">
+            <DockPanel DockPanel.Dock="Top" Height="60">
+                <Grid Background="#FFD9E6EF">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Row="0" VerticalAlignment="Center" Orientation="Horizontal">
+                        <TextBlock Width="100" Text="{Binding NameOfPlayer1}" Style="{StaticResource DefaultTextBlock}" VerticalAlignment="Center" Margin="5,0"/>
+                        <Image Source="/Othello;component/Images/ball_red.png" Margin="10,0"/>
+                        <TextBlock Text="{Binding CountRedBalls}" Style="{StaticResource DefaultTextBlock}" VerticalAlignment="Center" Margin="5,0"/>                        
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" VerticalAlignment="Center" Orientation="Horizontal">
+                        <TextBlock Width="100" Style="{StaticResource DefaultTextBlock}" Text="{Binding NameOfPlayer2}" VerticalAlignment="Center" Margin="5,0" />
+                        <Image Source="/Othello;component/Images/ball_blue.png" Margin="10,0"/>
+                        <TextBlock Text="{Binding CountBlueBalls}" Style="{StaticResource DefaultTextBlock}" VerticalAlignment="Center" Margin="5,0" />                        
+                    </StackPanel>
+                    <Image Source="{Binding Path=Step, Converter={StaticResource Game.MyConverter}}" Grid.Column="1" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        
+                    </Image>
+                </Grid>
+            </DockPanel>
+			<ItemsControl Name="GameField" ItemsSource="{Binding CellCollection}">
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+                        <UniformGrid Columns="{Binding CellColumns}" />
+                    </ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </DockPanel>
+        <StatusBar Grid.Row="1" Name="statusBar1" Background="#FFD9E6EF" Foreground="Red" FontWeight="Bold">
+            <StatusBarItem Name="sbiMessage" Content="{Binding Message}" />
+        </StatusBar>
+    </Grid>
+</Window>

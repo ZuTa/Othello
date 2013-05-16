@@ -1,0 +1,33 @@
+﻿<Window x:Class="Othello.SettingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:local="clr-namespace:Othello"
+        Title="Settings" Height="300" Width="300" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="50"/>
+		</Grid.RowDefinitions>
+		<StackPanel Grid.Row="0">
+			<DockPanel>
+                <Label Content="Level :" Width="50" Style="{StaticResource DefaultTextColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <ComboBox Name="cbLevel" Margin="10" Style="{StaticResource DefaultComboBox}" SelectedIndex="0" VerticalAlignment="Center">
+					<ComboBoxItem Content="Standart"/>
+					<ComboBoxItem Content="High" />
+					<ComboBoxItem Content="Master" />
+				</ComboBox>
+            </DockPanel>
+            <DockPanel>
+                <Label Content="Game :" Width="50" Style="{StaticResource DefaultTextColor}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <ComboBox Name="cbGame" Margin="10" Style="{StaticResource DefaultComboBox}" SelectedIndex="0" VerticalAlignment="Center">
+                    <ComboBoxItem Content="Single"/>
+                    <ComboBoxItem Content="Multi"/>
+                </ComboBox>
+            </DockPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" FlowDirection="RightToLeft">
+			<Button Name="btnClose" Content="Close" Width="70" Margin="10" Style="{StaticResource ButtonStyle}" Click="btnClose_Click" />
+			<Button Name="btnSave" Content="Save" Width="70" Margin="10" Style="{StaticResource ButtonStyle}" Click="btnSave_Click" />			
+		</StackPanel>
+	</Grid>
+</Window>

@@ -1,0 +1,37 @@
+﻿<Application x:Class="Othello.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+		<Style x:Key="ButtonStyle" TargetType="Button">
+			<Setter Property="Margin" Value="10" />
+			<Setter Property="Width" Value="150" />
+			<Setter Property="Height" Value="30" />
+			<Setter Property="FontFamily" Value="Verdana"/>
+			<Setter Property="FontSize" Value="12px"/>
+			<Setter Property="FontWeight" Value="Bold"/>
+			<Setter Property="Foreground" Value="Gray"/>
+			<Setter Property="Background">
+				<Setter.Value>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+						<GradientStop Color="CadetBlue" Offset="0.2"/>
+						<GradientStop Color="LightBlue" Offset="0.85"/>
+						<GradientStop Color="LightGreen" Offset="1"/>
+					</LinearGradientBrush>
+				</Setter.Value>
+			</Setter>
+		</Style>
+        <BitmapImage x:Key="BlueBall" UriSource="Images/ball_blue.png" />
+        <BitmapImage x:Key="RedBall" UriSource="Images/ball_red.png" />
+        <BitmapImage x:Key="None" UriSource="Images/none.png" />
+        <Style TargetType="{x:Type Label}" x:Key="DefaultTextColor">
+            <Setter Property="Foreground" Value="#FF3CA5CB" />
+        </Style>
+        <Style TargetType="{x:Type ComboBox}" x:Key="DefaultComboBox">
+            <Setter Property="Foreground" Value="#FF3CA5CB" />
+        </Style>
+        <Style TargetType="{x:Type TextBlock}" x:Key="DefaultTextBlock">
+            <Setter Property="Foreground" Value="#FF3CA5CB" />
+        </Style>
+    </Application.Resources>
+</Application>
